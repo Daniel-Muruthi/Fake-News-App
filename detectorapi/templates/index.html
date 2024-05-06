@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fake News Detector</title>
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <section>
+            <div class="circle"></div>
+            <header>
+                <a href="#"><img src="../static/images/fake2.jpg" class="logo"></a>
+                <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'detector' %}">Predict</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+    
+            </header>
+            <div class="content">
+                <div class="textbox">
+                    <h2> Is it real? <br>Click <span> to find the truth.</span></h2>
+                    <p>Welcome to Data Alchemists, where data science meets real-world problem-solving.
+                         We are a dedicated team of data scientists passionate about leveraging the power 
+                         of data to deliver dynamic solutions to companies in need. Our mission is to transform
+                          raw data into actionable insights, providing tailored solutions that drive growth, 
+                          innovation, and success.</p>
+                <a href="{%url 'detector' %}">Predict</a>  
+                </div>
+    
+                <div class="imgBox">
+                    <img src="../static/images/news 5.jpg" class="News"
+                </div>
+            </div>
+            <ul class="thumb">
+                <li><img src="../static/images/thumb1.jpg"></li>
+                <li><img src="../static/images/thumb2.jpg"></li>
+                <li><img src="../static/images/thumb3.jpg"></li>
+            </ul>
+    
+        </section>
+        <div class="footer-basic fixed-bottom bg-light">
+            <footer class="text-center">
+                <div class="social"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a><a href="#"><i class="fa-brands fa-x-twitter"></i></a><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a><a href="#"><i class="fa-brands fa-linkedin"></i></a></div>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="list-inline-item"><a href="{% url 'detector' %}">Predict</a></li>
+                    <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="copyright">Data Alchemists © 2024</p>
+            </footer>
+        </div>
+        <script src="https://kit.fontawesome.com/f7932a3015.js" crossorigin="anonymous"></script>
+    </body>
+</html>

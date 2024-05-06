@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/detector.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header class="bg-light">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-auto">
+                    <a href="#"><img src="../static/images/fake2.jpg" class="logo"></a>
+                </div>
+                <div class="col-md-auto">
+                    <ul class="navbar-link list-inline">
+                        <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
+                        <li class="list-inline-item"><a href="{% url 'detector' %}">Predict</a></li>
+                        <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container mid-body">
+        <div class="mt-4">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1>Fake News Detector</h1>
+                    <form id="newsForm">
+                        <div class="form-group">
+                            <label for="newsInput">Enter News Text:</label>
+                            <textarea class="form-control" id="newsInput" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Detect</button>
+                    </form>
+                    <div id="resultContainer" class="mt-4">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="footer-basic fixed-bottom bg-light">
+        <footer class="text-center">
+            <div class="social"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a><a href="#"><i class="fa-brands fa-x-twitter"></i></a><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a><a href="#"><i class="fa-brands fa-linkedin"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'detector' %}">Predict</a></li>
+                <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Data Alchemists © 2024</p>
+        </footer>
+    </div>
+    <script src="https://kit.fontawesome.com/f7932a3015.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

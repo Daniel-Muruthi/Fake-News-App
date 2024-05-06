@@ -1,0 +1,162 @@
+{% load static %}
+<!-- {% load crispy_forms_tags %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="../static/css/contact.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/f7932a3015.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="#"><img src="../static/images/fake2.jpg" class="logo"></a>
+      <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'detector' %}">Predict</a></li>
+      <li><a href="{% url 'contact' %}">Contact Us</a></li>
+      </ul>
+    </header>
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src="../static/images/img/shape.png" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text">
+            Thank you for your interest in Data Alchemists! We're here to help you unlock 
+            the potential of data-driven solutions for your business. Feel free to reach 
+            out to us through any of the following channel
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="../static/images/img/location.png" class="icon" alt="" />
+              <p>Data Alchemists Nairobi Office, 123 Westlands Road, Suite 101, Westlands, Nairobi, Kenya</p>
+            </div>
+            <div class="information">
+              <img src="../static/images/img/email.png" class="icon" alt="" />
+              <p>info@dataalchemists.com.</p>
+            </div>
+            <div class="information">
+              <img src="../static/images/img/phone.png" class="icon" alt="" />
+              <p>+254 (20) 123-4567</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a><a href="#"><i class="fa-brands fa-x-twitter"></i></a><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a><a href="#"><i class="fa-brands fa-linkedin"></i></a></div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form action="{%url 'contact' %}" autocomplete="off" id="contactForm">
+            {% csrf_token %}
+            <!-- {{ form|crispy  }}
+            {{ form.media  }} -->
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+              <input type="text" name="username" class="input" placeholder="{{ form.username.label }}" />
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input" placeholder="{{ form.email.label }}" />
+            </div>
+            <div class="input-container input phone ">
+              <!-- <input id="phone_number" type="tel" name="phone_number" class="input" placeholder="{{ form.phone_number.label }}" /> -->
+              {{form.phone_number}}
+            </div>            
+            <div class="input-container textarea">
+              <textarea name="message" class="input" placeholder="{{ form.message.label }}"></textarea>
+            </div>
+            <input type="submit" value="Send" class="btn" />
+          </form>          
+        </div>
+      </div>
+    </div>
+    <div class="footer-basic fixed-bottom bg-light">
+      <footer class="text-center">
+        <div class="social"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a><a href="#"><i class="fa-brands fa-x-twitter"></i></a><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a><a href="#"><i class="fa-brands fa-linkedin"></i></a></div>
+          <ul class="list-inline">
+              <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
+              <li class="list-inline-item"><a href="{% url 'detector' %}">Predict</a></li>
+              <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+              <li class="list-inline-item"><a href="#">Terms</a></li>
+              <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+          </ul>
+          <p class="copyright">Data Alchemists © 2024</p>
+      </footer>
+    </div>
+    <script>
+      $(document).ready(function() {
+          // Select the form and attach a submit event handler
+          $('#contactForm').submit(function(event) {
+              // Prevent the default form submission behavior
+              event.preventDefault();
+              
+              // Perform AJAX request
+              $.ajax({
+                  type: 'POST', // Use POST method
+                  url: $(this).attr('action'), // Get the form's action URL
+                  data: $(this).serialize(), // Serialize the form data
+                  dataType: 'json', // Expect JSON response
+                  success: function(response) {
+                      // Extract errors object from response
+                      const errors = response.errors;
+      
+                      // Construct error message from the errors object
+                      let errorMessage = "";
+                      for (const field in errors) {
+                          errorMessage += `${field}: ${errors[field].join(", ")}\n`;
+                      }
+      
+                      // Display success message if response indicates success
+                      if (response.success) {
+                          Swal.fire({
+                              icon: 'success',
+                              title: 'Success!',
+                              text: 'Your message has been sent successfully!',
+                          });
+                          // Reset the form
+                          $('#contactForm')[0].reset();
+                      } else {
+                          // Display error message if response indicates failure
+                          Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: errorMessage || 'There was an error processing your request. Please check the form and try again.',
+                          });
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      // Display error message if AJAX request fails
+                      console.error(xhr.responseText);
+                      Swal.fire({
+                          icon: 'error',
+                          title: 'Oops...',
+                          text: 'There was an error processing your request. Please try again later.',
+                      });
+                  }
+              });
+          });
+      });
+
+    </script>
+  </body>
+</html>
