@@ -59,7 +59,7 @@ def send_contact_email(contact):
         html_message=f'''
         <html>
             <head>
-                <title>Data Alchemists</title> <!-- Change the title here -->
+                <title>Data Alchemists</title> 
             </head>
             <body>
                 <p>Hi {contact.username},</p>

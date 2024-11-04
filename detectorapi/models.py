@@ -7,8 +7,8 @@ class News(models.Model):
 
 class Contact(models.Model):
     username = models.CharField(max_length=100)
-    email = models.EmailField(unique=True, max_length=100)
-    phone_number = PhoneNumberField(null=False, blank=False, unique=True, max_length=20)
+    email = models.EmailField(max_length=100)
+    phone_number = PhoneNumberField(max_length=20)
     message = models.TextField()
 
     def __str__(self):

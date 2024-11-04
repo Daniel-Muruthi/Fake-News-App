@@ -493,7 +493,7 @@ textarea.input {
   text-align: center;
 }
 .phone {
-  display: flex;
+  /* display: flex; */
   background-color:#253758;
   color: white;
 }
@@ -505,17 +505,20 @@ textarea.input {
   width: 100%;
   box-sizing: border-box;
   background-color:#253758;
+  color: #fff;
 }
-
+.phone input::placeholder {
+  color: #fff;
+}
 .phone select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px 0 0 4px;
   font-size: 16px;
-  max-width: 75px; /* Adjust this value as needed */
+  max-width: 100%; /* Adjust this value as needed */
   box-sizing: border-box;
   background-color:#253758;
-  color: #555;
+  color: #fff;
 }
 
 .phone-number-container {
