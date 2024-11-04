@@ -1,2 +1,5 @@
 virtual/
 .env
+final_logistic_regression_model.pkl
+logistic_regression_model.pkl
+tfidf_vectorizer.pkl

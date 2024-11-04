@@ -2,6 +2,14 @@
 
 ![Alternative text](https://github.com/idatonui/Fake-News-Prediction/blob/main/images/how-to-identify-fake-news-1.jpg)
 
+## Contributors
+- Ida Chepng'eno
+- George Mbugua
+- Kevan Ndwiga
+- Daniel Muruthi
+- Mike Kiptoch
+- Neville Ngenzi
+
 ## Introduction
 
 In today's digital age, the spread of misinformation, commonly known as fake news, has become a pervasive issue, undermining the integrity of journalistic organizations worldwide. The impact of fake news extends beyond politics, significantly affecting public health. During the COVID-19 pandemic, misinformation led to confusion and panic-buying of unproven remedies, while vaccine hesitancy fueled by false claims jeopardized efforts to curb the virus's spread. Addressing this challenge requires data-driven approaches, drawing on techniques from machine learning, natural language processing, and social network analysis. Researchers and policymakers are increasingly leveraging these tools to predict and mitigate the dissemination of fake news, enabling targeted interventions to combat its harmful effects.
@@ -133,14 +141,6 @@ To run the application in production using Gunicorn:
 ```bash
 gunicorn newsdetector.wsgi:application
 ```
-
-## Contributors
-- Ida Chepng'eno
-- George Mbugua
-- Kevan Ndwiga
-- Daniel Muruthi
-- Mike Kiptoch
-- Neville Ngenzi
 
 ## Model Information
 - Algorithm: Logistic Regression
