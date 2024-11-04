@@ -155,4 +155,4 @@ gunicorn newsdetector.wsgi:application
 
 
 ## Contact
-For any queries or contributions, please reach out to [Your Contact Information]
+For any queries or contributions, please reach out to [dataalchemists2024@gmail.com]

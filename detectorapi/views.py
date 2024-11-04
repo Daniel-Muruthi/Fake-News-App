@@ -13,6 +13,8 @@ from django.http import JsonResponse
 logistic_regression_model = joblib.load('lr_model.pkl')
 countvectorizer = joblib.load('Countvectorizer.pkl')
 
+
+# Create our predict api which deploys our ML models
 @api_view(['POST'])
 def predict(request):
     data = request.data
